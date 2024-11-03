@@ -48,7 +48,7 @@ Experiment Timeout ("experiment_timeout_minutes": 18): This sets a maximum durat
 Max Concurrent Iterations ("max_concurrent_iterations": 5): This specifies the maximum number of model training iterations that can run simultaneously. By allowing up to 5 iterations concurrently, the experiment can utilize available computational resources effectively, potentially speeding up the overall process.
 
 These adjustments simplify the technical terms while retaining the core meaning and purpose of each parameter in the context of AutoML experimentation for predicting the "DEATH_EVENT" in a dataset.
-![alt text](rundetail.png)
+![alt text](images/rundetail.png)
 ### Results
 Best Model Run ID: HD_f012b6b0-6f40-408a-8302-6bd4c2760e0e_9
 
@@ -57,7 +57,7 @@ Best Model Metrics: {'Learning Rate:': 0.75, 'Number Estimators:': 15, 'Accuracy
 Best Model Accuracy: 0.8
 
 
-![alt text](bestmodel.png)
+![alt text](images/bestmodel.png)
 
 
 ## Hyperparameter Tuning
@@ -65,7 +65,7 @@ Before we train and tune the logistic regression, we split the dataset into 90% 
 
 With the estimator, parameter sampler, and an early termination policy, we create a HyperDrive Config, which is subsequently submitted as an experiment. Upon completion of the run, we determine that the best model archives a validation accuracy of 80%.
 
-![alt text](rundetailhyper.png)
+![alt text](images/rundetailhyper.png)
 ### Results
 
 Best Model Run ID: HD_f012b6b0-6f40-408a-8302-6bd4c2760e0e_9
@@ -74,7 +74,7 @@ Best Model Metrics: {'Learning Rate:': 0.75, 'Number Estimators:': 15, 'Accuracy
 
 Best Model Accuracy: 0.8
 
-![alt text](bestmodelhyper.png)
+![alt text](images/bestmodelhyper.png)
 ## Model Deployment
 ![alt text](modelendpoint.png)
 
