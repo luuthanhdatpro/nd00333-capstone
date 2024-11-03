@@ -49,6 +49,7 @@ Max Concurrent Iterations ("max_concurrent_iterations": 5): This specifies the m
 
 These adjustments simplify the technical terms while retaining the core meaning and purpose of each parameter in the context of AutoML experimentation for predicting the "DEATH_EVENT" in a dataset.
 ![alt text](images/rundetail.png)
+RunDetails
 ### Results
 Best Model Run ID: HD_f012b6b0-6f40-408a-8302-6bd4c2760e0e_9
 
@@ -58,7 +59,7 @@ Best Model Accuracy: 0.8
 
 
 ![alt text](images/bestmodel.png)
-
+Best Model
 
 ## Hyperparameter Tuning
 Before we train and tune the logistic regression, we split the dataset into 90% for training and 10% for testing. We utilize sklearn's GradientBoostingClassifier Class to establish and fit the model. Thereby, we define a parameter sampler to tune the hyperparameters, specifically the learning rate and number of estimators. Additionally, random parameter sampling was used, because it is an efficient, exploratory, and parallelizable method for hyperparameter tuning, which can potentially find better hyperparameters than other search methods. It is also robust to noise and other sources of variability in the training process. Additionally, a bandit policy was applied, since it is a popular early termination policy used in hyperparameter tuning that aims to save computational resources by terminating poorly performing runs early.
@@ -66,6 +67,7 @@ Before we train and tune the logistic regression, we split the dataset into 90% 
 With the estimator, parameter sampler, and an early termination policy, we create a HyperDrive Config, which is subsequently submitted as an experiment. Upon completion of the run, we determine that the best model archives a validation accuracy of 80%.
 
 ![alt text](images/rundetailhyper.png)
+RunDetails of Hyperparameter Tuning
 ### Results
 
 Best Model Run ID: HD_f012b6b0-6f40-408a-8302-6bd4c2760e0e_9
@@ -75,9 +77,17 @@ Best Model Metrics: {'Learning Rate:': 0.75, 'Number Estimators:': 15, 'Accuracy
 Best Model Accuracy: 0.8
 
 ![alt text](images/bestmodelhyper.png)
+Best model with Hyperparameter Tuning
 ## Model Deployment
-![alt text](modelendpoint.png)
-
+![alt text](images/modelendpoint.png)
+Model endpoint
+Running to query with sample input
+```
+python endpoint.py
+```
+![alt text](<images/endpoint calling.png>)
 ## Screen Recording
 [Screencast](https://drive.google.com/file/d/1CpQkAaM6qTb_Rb8G6Xf1XeIxgPmgxWRz/view?usp=sharing)
 
+## Overview of how to improve the project in the future
+To a large degree, efforts were made in AutoML to enhance cross-validation and mitigate the effects of imbalanced data. However, these methods were not included in the hyperdrive run.Using SMOTE to address imbalanced data might have improved the AUC score. Random Forest could have been used as an alternative approach.
